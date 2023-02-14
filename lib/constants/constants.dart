@@ -3,12 +3,34 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
+//width height paddings
+const Widget kheight = SizedBox(
+  height: 20,
+);
+const Widget kheightL = SizedBox(
+  height: 40,
+);
+
+const Widget kwidth = SizedBox(
+  width: 10,
+);
+const Widget kwidthmedium = SizedBox(
+  width: 200,
+);
+
 //colors
+final Color? pikitBasebluepleasent = Colors.blue[50];
+final Color? pikitBaseGreyIntensive = Colors.grey[900];
+const Color pikitBaseGrey = Colors.grey;
 final Color? pikitGrey = Colors.grey[100];
 const Color pikitWhite = Colors.white;
 const Color pikitGreen = Colors.green;
 final Color? pikitGreen50 = Colors.green[50];
 const Color pikitRed = Colors.red;
+const Color pikitBlack = Colors.black;
+const Color pikitGreenButtonText = Color.fromARGB(255, 6, 146, 62);
+const Color pikitBlue = Colors.blue;
+const Color pikitOrange = Colors.orange;
 //icons
 const IconData pikitWallet = Icons.wallet_outlined;
 const IconData pikitLock = Icons.lock_clock_outlined;

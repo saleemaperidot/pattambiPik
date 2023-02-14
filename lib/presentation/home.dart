@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:pikit/constants/constants.dart';
 import 'package:pikit/presentation/Account/accounts_screen.dart';
 import 'package:pikit/presentation/Alert/alerts_screen.dart';
 import 'package:pikit/presentation/Explore/explore_screen.dart';
@@ -11,8 +12,10 @@ import 'package:pikit/presentation/cart_screen/cart_screen.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
+  // final int pageSelect;
   final pages = [
-    NearHotelDishesScreen(),
+    NearMeScreen(),
+    // NearHotelDishesScreen(),
     AlertsScreen(),
     ExploreScreen(),
     CartScreen(),
@@ -22,7 +25,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[50],
+      backgroundColor: pikitWhite,
       body: ValueListenableBuilder(
         valueListenable: navigationNotifier,
         builder: (context, value, _) {

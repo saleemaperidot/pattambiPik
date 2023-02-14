@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:pikit/constants/constants.dart';
 import 'package:pikit/presentation/NearMe/hotel_list_card.dart';
+import 'package:pikit/presentation/NearMe/near_hotel_dishes_screen.dart';
 
 class NearMeScreen extends StatelessWidget {
   const NearMeScreen({super.key});
@@ -13,6 +14,7 @@ class NearMeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: pikitGrey,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0.5,
         backgroundColor: pikitWhite,
         actions: [
@@ -45,22 +47,48 @@ class NearMeScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(15),
               child: Container(
-                color: pikitGreen,
-                width: 150,
-                height: 150,
-              ),
+                  // color: pikitGreen,
+                  height: 150,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 10,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        width: 5,
+                      );
+                    },
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 10,
+                        shadowColor: pikitBlack,
+                        //  color: Colors.amber,
+                        child: Container(
+                          //  color: Colors.blueAccent,
+                          width: 150,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image:
+                                      AssetImage("assets/images/offer1.jpg"))),
+                        ),
+                      );
+                    },
+                  )),
             ),
             const Padding(
               padding: EdgeInsets.all(15),
               child: CupertinoSearchTextField(
                 backgroundColor: pikitWhite,
+                placeholder: "Search for stories or items...",
               ),
             ),
             Container(
               color: pikitWhite,
               child: SizedBox(
                 child: ListView.separated(
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(10),
                   separatorBuilder: (context, index) => SizedBox(
                     height: 30,
                   ),
@@ -68,6 +96,11 @@ class NearMeScreen extends StatelessWidget {
                   physics: ScrollPhysics(),
                   itemBuilder: (context, index) {
                     return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => NearHotelDishesScreen(),
+                        ));
+                      },
                       child: HotelListCard(
                         hotelName: "hotelName",
                         hotelDishesList: [],
