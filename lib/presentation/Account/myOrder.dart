@@ -13,6 +13,14 @@ class MyOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              pikitarrowBack,
+              color: pikitBlue,
+            )),
         iconTheme: IconThemeData(
           color: pikitBlack,
         ),
@@ -83,9 +91,10 @@ class MyOrders extends StatelessWidget {
                                 "x1",
                                 style: TextStyle(color: pikitBlack),
                               )),
+                          kwidth,
                           Text("Chicken Mandi"),
                           SizedBox(
-                            width: 150,
+                            width: 137,
                           ),
                           Text("200 rs")
                         ],

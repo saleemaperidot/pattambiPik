@@ -17,7 +17,8 @@ const Widget kwidth = SizedBox(
 const Widget kwidthmedium = SizedBox(
   width: 200,
 );
-
+//const BaseWidth(context ctx)
+//const BaseWidth = MediaQuery.of(context).size.width;
 //colors
 final Color? pikitBasebluepleasent = Colors.blue[50];
 final Color? pikitBaseGreyIntensive = Colors.grey[900];
@@ -36,7 +37,7 @@ const IconData pikitWallet = Icons.wallet_outlined;
 const IconData pikitLock = Icons.lock_clock_outlined;
 const IconData pikitStar = Icons.star;
 const IconData pikitHomeOutlined = Icons.home_outlined;
-const IconData pikitarrowBack = Icons.arrow_back_sharp;
+const IconData pikitarrowBack = Icons.arrow_back_ios;
 const IconData pikitfoodAvailable = Icons.stop_circle_outlined;
 const IconData pikitMenuIcon = Icons.menu;
 const IconData pikitChervonRightAppBarRight = Icons.chevron_right;

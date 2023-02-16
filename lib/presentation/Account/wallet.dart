@@ -12,6 +12,14 @@ class Wallet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              pikitarrowBack,
+              color: pikitBlue,
+            )),
         iconTheme: IconThemeData(color: pikitBlack),
         backgroundColor: pikitWhite,
         elevation: 0,

@@ -63,7 +63,7 @@ class CartScreen extends StatelessWidget {
               // ));
             },
             icon: Icon(Icons.arrow_back_ios),
-            color: pikitBlack,
+            color: pikitBlue,
           ),
           automaticallyImplyLeading: false,
           elevation: 0,
@@ -89,7 +89,7 @@ class CartScreen extends StatelessWidget {
                 padding: EdgeInsets.all(7),
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Card(
-                  elevation: 4,
+                  //  elevation: 4,
                   shadowColor: pikitBlack,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,11 +98,14 @@ class CartScreen extends StatelessWidget {
                       Padding(
                           padding: EdgeInsets.all(8),
                           child: Text("ITEM IN CART")),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        height: 0.5,
-                        color: pikitBaseGrey,
-                        width: double.infinity,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          //  padding: EdgeInsets.all(20),
+                          height: MediaQuery.of(context).size.height * 0.0005,
+                          color: pikitBaseGrey,
+                          width: MediaQuery.of(context).size.width * 0.85,
+                        ),
                       ),
                       ListTile(
                         leading: Container(
@@ -115,30 +118,41 @@ class CartScreen extends StatelessWidget {
                             Text("Fish curry")
                           ]),
                         ),
-                        title: Row(
-                          children: [
-                            OutlinedButton(
-                              onPressed: () {},
-                              child: Text("+"),
-                            ),
-                            OutlinedButton(
-                              onPressed: () {},
-                              child: Text("-"),
-                            ),
-                          ],
+                        title: Container(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width: 40,
+                                child: OutlinedButton(
+                                  onPressed: () {},
+                                  child: Text("+"),
+                                ),
+                              ),
+                              Container(
+                                width: 40,
+                                child: OutlinedButton(
+                                  onPressed: () {},
+                                  child: Text("6"),
+                                ),
+                              ),
+                              Container(
+                                width: 40,
+                                child: OutlinedButton(
+                                  onPressed: () {},
+                                  child: Text("-"),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         trailing: Text("rs 100"),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        height: 0.5,
-                        color: pikitBaseGrey,
-                        width: double.infinity,
-                      ),
+                      divider(),
                       Padding(
                         padding: EdgeInsets.all(10),
                         child: Text(
-                          "Write your sujjestion and reviews about the restraunts",
+                          "Write your sujestion and reviews about the restraunts",
                           style: TextStyle(
                               color: pikitBaseGrey,
                               overflow: TextOverflow.ellipsis,
@@ -153,7 +167,7 @@ class CartScreen extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Card(
-                  elevation: 10,
+                  // elevation: 10,
                   shadowColor: pikitBlack,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -214,13 +228,86 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Card()
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: MediaQuery.of(context).size.height * 0.7,
+                    child: Column(
+                      children: [
+                        Text("BILL DETAILS"),
+                        BillingDetailsCardListItem(
+                          leadingText: "Item Total",
+                          trailingText: "570.0",
+                          weight: false,
+                        ),
+                        divider(),
+                        BillingDetailsCardListItem(
+                            weight: false,
+                            leadingText: "Delivery Charge",
+                            trailingText: "12"),
+                        divider(),
+                        BillingDetailsCardListItem(
+                            weight: false,
+                            leadingText: "GST",
+                            trailingText: "12"),
+                        divider(),
+                        BillingDetailsCardListItem(
+                            weight: true,
+                            leadingText: "To Pay",
+                            trailingText: "610"),
+                      ],
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
       ),
 
 // Here, we use the scaffold widget to show a snack bar.
+    );
+  }
+}
+
+class divider extends StatelessWidget {
+  const divider({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      height: 0.5,
+      color: pikitBaseGrey,
+      width: double.infinity,
+    );
+  }
+}
+
+class BillingDetailsCardListItem extends StatelessWidget {
+  const BillingDetailsCardListItem(
+      {Key? key,
+      required this.leadingText,
+      required this.trailingText,
+      required this.weight})
+      : super(key: key);
+
+  final String leadingText;
+  final String trailingText;
+  final bool weight;
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Text(
+        leadingText,
+        style: TextStyle(
+          fontWeight: weight ? FontWeight.bold : FontWeight.normal,
+        ),
+      ),
+      trailing: Text(trailingText),
     );
   }
 }

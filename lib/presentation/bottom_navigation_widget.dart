@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -28,7 +29,13 @@ class BottomNavigationWidget extends StatelessWidget {
               label: "Near Me",
             ),
             BottomNavigationBarItem(
-              icon: Icon(pikitNotificationIcon),
+              icon: Badge(
+                  badgeContent: Text(
+                    "0",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  badgeStyle: BadgeStyle(badgeColor: pikitGreen),
+                  child: Icon(pikitNotificationIcon)),
               label: "Alert",
             ),
             BottomNavigationBarItem(
@@ -36,7 +43,13 @@ class BottomNavigationWidget extends StatelessWidget {
               label: "Explore",
             ),
             BottomNavigationBarItem(
-              icon: Icon(pikitShopingBagIcon),
+              icon: Badge(
+                  badgeContent: Text(
+                    "0",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  badgeStyle: BadgeStyle(badgeColor: pikitGreen),
+                  child: Icon(pikitShopingBagIcon)),
               label: "Cart",
             ),
             BottomNavigationBarItem(

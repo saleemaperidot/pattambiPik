@@ -12,6 +12,7 @@ class AccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -19,7 +20,7 @@ class AccountScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 80),
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: mediaHeight * 0.3,
               color: pikitGrey,
               child: ListTile(
                 title: Text(
