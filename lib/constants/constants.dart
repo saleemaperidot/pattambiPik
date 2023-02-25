@@ -28,6 +28,7 @@ const Color pikitWhite = Colors.white;
 const Color pikitGreen = Colors.green;
 final Color? pikitGreen50 = Colors.green[50];
 const Color pikitRed = Colors.red;
+final Color? pikitBlackTheme = Colors.black;
 const Color pikitBlack = Colors.black;
 const Color pikitGreenButtonText = Color.fromARGB(255, 6, 146, 62);
 const Color pikitBlue = Colors.blue;
@@ -38,6 +39,7 @@ const IconData pikitLock = Icons.lock_clock_outlined;
 const IconData pikitStar = Icons.star;
 const IconData pikitHomeOutlined = Icons.home_outlined;
 const IconData pikitarrowBack = Icons.arrow_back_ios;
+//const IconData pikitfoodAvailableveg = Icons.;
 const IconData pikitfoodAvailable = Icons.stop_circle_outlined;
 const IconData pikitMenuIcon = Icons.menu;
 const IconData pikitChervonRightAppBarRight = Icons.chevron_right;
@@ -46,3 +48,13 @@ const IconData pikitLocationIcon = Icons.location_on_outlined;
 const IconData pikitSearchIcon = Icons.search;
 const IconData pikitShopingBagIcon = Icons.shopping_bag_outlined;
 const IconData pikitAccountPersonIcon = Icons.person_outline;
+
+Widget horizontal_line = Container(
+  color: pikitBaseGrey,
+  child: const SizedBox(
+    height: 1,
+    width: double.infinity,
+  ),
+);
+
+const rs = "₹";

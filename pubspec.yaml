@@ -34,6 +34,17 @@ dependencies:
   scroll_to_index: ^3.0.1
   badges: ^3.0.2
   google_maps_flutter: ^2.2.3
+
+  intl: ^0.18.0
+  dio: ^4.0.6
+  dartz: ^0.10.1
+  get_it: ^7.2.0
+  injectable: ^1.5.3
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
+  flutter_bloc: ^8.1.1
+  bordered_text: ^2.0.0
  
   flutter:
     sdk: flutter
@@ -44,6 +55,9 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  injectable_generator: ^1.5.3
+  build_runner: ^2.3.3
+  freezed: ^2.3.2
   flutter_test:
     sdk: flutter
 

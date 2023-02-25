@@ -11,23 +11,25 @@ class MyOrders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: Icon(
+            icon: const Icon(
               pikitarrowBack,
               color: pikitBlue,
             )),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: pikitBlack,
         ),
-        backgroundColor: pikitWhite,
+        // backgroundColor: pikitWhite,
         elevation: 0,
-        title: Text(
-          "My ORDERS",
+        title: const Text(
+          "MY ORDERS",
           style: TextStyle(color: pikitBlack),
         ),
       ),
@@ -44,11 +46,11 @@ class MyOrders extends StatelessWidget {
               elevation: 10,
               shadowColor: pikitBlack,
               color: pikitWhite,
-              margin: EdgeInsets.all(10),
+              // margin: const EdgeInsets.all(10),
               child: Container(
-                padding: EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.6,
+                padding: const EdgeInsets.all(10),
+                width: _width * 0.8,
+                height: _height * 0.6,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,59 +62,32 @@ class MyOrders extends StatelessWidget {
                         style: TextStyle(color: pikitBlack),
                       ),
                     ),
-                    Container(
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Order Id",
-                              style: TextStyle(
-                                color: pikitGreen,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text("2 years ago")
-                          ]),
+                    ListTile(
+                      dense: true,
+                      //contentPadding: EdgeInsets.symmetric(),
+                      visualDensity: VisualDensity(vertical: -3),
+                      // minVerticalPadding: 1,
+                      leading: Text("Order Id"),
+                      trailing: Text("2 years ago"),
                     ),
-                    Text("Hotel Name"),
-                    Container(
-                      color: pikitBaseGrey,
-                      child: SizedBox(
-                        height: 1,
-                        width: double.infinity,
-                      ),
+                    const ListTile(leading: Text("Hotel Name")),
+                    horizontal_line,
+                    ListTile(
+                      leading: OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "x1",
+                            style: TextStyle(color: pikitBlack),
+                          )),
+                      title: Text("Chicken Mandi"),
+                      trailing: Text("200rs"),
                     ),
-                    Container(
-                      child: Row(
-                        children: [
-                          OutlinedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "x1",
-                                style: TextStyle(color: pikitBlack),
-                              )),
-                          kwidth,
-                          Text("Chicken Mandi"),
-                          SizedBox(
-                            width: 137,
-                          ),
-                          Text("200 rs")
-                        ],
-                      ),
+                    ListTile(
+                      style: ListTileStyle.list,
+                      leading: Text("full"),
+                      trailing: Text("200 rs"),
                     ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text("full"), Text("200 rs")],
-                      ),
-                    ),
-                    Container(
-                      color: pikitBaseGrey,
-                      child: SizedBox(
-                        height: 1,
-                        width: double.infinity,
-                      ),
-                    ),
+                    horizontal_line,
                     BottomRows(
                       first: "Restraunt charges",
                       Second: "rs",

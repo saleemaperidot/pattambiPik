@@ -49,6 +49,8 @@ class CartScreen extends StatelessWidget {
       ));
   @override
   Widget build(BuildContext context) {
+    final _dimension = MediaQuery.of(context).size;
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ScaffoldMessenger.of(context).showSnackBar(checkOutsnakBar);
     });
@@ -58,9 +60,6 @@ class CartScreen extends StatelessWidget {
           leading: IconButton(
             onPressed: () {
               navigationNotifier.value = 0;
-              // Navigator.of(context).push(MaterialPageRoute(
-              //   builder: (context) => Home(),
-              // ));
             },
             icon: Icon(Icons.arrow_back_ios),
             color: pikitBlue,
@@ -68,7 +67,7 @@ class CartScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           elevation: 0,
           iconTheme: IconThemeData(color: pikitBlack),
-          backgroundColor: pikitWhite,
+          //  backgroundColor: pikitWhite,
           title: Text(
             "CART",
             style: TextStyle(color: pikitBlack),
@@ -87,7 +86,7 @@ class CartScreen extends StatelessWidget {
                   rate: 400),
               Container(
                 padding: EdgeInsets.all(7),
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: _dimension.height * 0.3,
                 child: Card(
                   //  elevation: 4,
                   shadowColor: pikitBlack,
@@ -102,14 +101,14 @@ class CartScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                           //  padding: EdgeInsets.all(20),
-                          height: MediaQuery.of(context).size.height * 0.0005,
+                          height: _dimension.height * 0.0005,
                           color: pikitBaseGrey,
-                          width: MediaQuery.of(context).size.width * 0.85,
+                          width: _dimension.width * 0.85,
                         ),
                       ),
                       ListTile(
                         leading: Container(
-                          width: 100,
+                          width: 100, //_dimension.width * 20,
                           child: Row(children: [
                             Icon(
                               pikitfoodAvailable,

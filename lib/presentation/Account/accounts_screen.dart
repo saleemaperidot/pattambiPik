@@ -17,35 +17,22 @@ class AccountScreen extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
-            Container(
-              padding: EdgeInsets.only(top: 80),
-              width: double.infinity,
-              height: mediaHeight * 0.3,
-              color: pikitGrey,
-              child: ListTile(
-                title: Text(
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                    "Name Of the Account Holder"),
-                subtitle: Text("918393199"),
-              ),
-            ),
+            AccountHolderContainer(mediaHeight: mediaHeight),
             Expanded(
                 child: Column(
               children: [
-                customExpansionTile(
+                CustomExpansionTile(
                     text: "My Account",
                     color: pikitBlack,
                     childerens: [
                       ListTile(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => manageAccount(),
+                            builder: (context) => ManageAccount(),
                           ));
                         },
                         trailing: Icon(Icons.arrow_right_outlined),
-                        leading: customRowAccount(
+                        leading: const CustomRowAccount(
                           leadingIcon: Icons.home_outlined,
                           text: "Manage Address",
                           iconIndicator: true,
@@ -56,8 +43,8 @@ class AccountScreen extends StatelessWidget {
 
                       // //My orders
                       ListTile(
-                        trailing: Icon(Icons.arrow_right_outlined),
-                        leading: customRowAccount(
+                        trailing: const Icon(Icons.arrow_right_outlined),
+                        leading: const CustomRowAccount(
                           iconIndicator: true,
                           leadingIcon: Icons.shopping_cart_outlined,
                           text: "My Orders",
@@ -76,15 +63,15 @@ class AccountScreen extends StatelessWidget {
                             builder: (context) => Wallet(),
                           ));
                         },
-                        trailing: Icon(Icons.arrow_right_outlined),
-                        leading: customRowAccount(
+                        trailing: const Icon(Icons.arrow_right_outlined),
+                        leading: const CustomRowAccount(
                           iconIndicator: true,
                           leadingIcon: Icons.wallet_rounded,
                           text: "My Wallets",
                         ),
                       ),
                     ]),
-                customExpansionTile(
+                CustomExpansionTile(
                     text: "Account Settings",
                     color: pikitBlack,
                     childerens: [
@@ -94,21 +81,21 @@ class AccountScreen extends StatelessWidget {
                             builder: (context) => DeleteAccount(),
                           ));
                         },
-                        trailing: Icon(Icons.arrow_right_outlined),
-                        leading: customRowAccount(
+                        trailing: const Icon(Icons.arrow_right_outlined),
+                        leading: const CustomRowAccount(
                           iconIndicator: true,
                           leadingIcon: Icons.info_outline,
                           text: "Delete Account",
                         ),
                       ),
                     ]),
-                customExpansionTile(
+                const CustomExpansionTile(
                   text: "Help & FAQs",
                   color: pikitBlack,
                   childerens: [
                     ListTile(
                       trailing: Icon(Icons.arrow_right_outlined),
-                      leading: customRowAccount(
+                      leading: CustomRowAccount(
                         iconIndicator: false,
                         leadingIcon: Icons.wallet_rounded,
                         text: "privacy",
@@ -117,7 +104,7 @@ class AccountScreen extends StatelessWidget {
                     //faq
                     ListTile(
                       trailing: Icon(Icons.arrow_right_outlined),
-                      leading: customRowAccount(
+                      leading: CustomRowAccount(
                         iconIndicator: false,
                         leadingIcon: Icons.wallet_rounded,
                         text: "Employee varivation",
@@ -125,7 +112,7 @@ class AccountScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                ListTile(
+                const ListTile(
                   leading: Text(
                     "Log Out",
                     style: TextStyle(color: pikitRed),
@@ -144,8 +131,35 @@ class AccountScreen extends StatelessWidget {
   }
 }
 
-class customExpansionTile extends StatelessWidget {
-  const customExpansionTile(
+class AccountHolderContainer extends StatelessWidget {
+  const AccountHolderContainer({
+    Key? key,
+    required this.mediaHeight,
+  }) : super(key: key);
+
+  final double mediaHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 80),
+      width: double.infinity,
+      height: mediaHeight * 0.3,
+      color: pikitGrey,
+      child: const ListTile(
+        title: Text(
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            "Name Of the Account Holder"),
+        subtitle: Text("918393199"),
+      ),
+    );
+  }
+}
+
+class CustomExpansionTile extends StatelessWidget {
+  const CustomExpansionTile(
       {Key? key,
       required this.text,
       required this.color,
@@ -162,24 +176,12 @@ class customExpansionTile extends StatelessWidget {
           style: TextStyle(color: color, fontWeight: FontWeight.bold),
         ),
         initiallyExpanded: true,
-        children: childerens
-        // [
-        // ListTile(
-        //   trailing: Icon(Icons.arrow_right_outlined),
-        //   leading:.
-        //   customRowAccount(
-        //     leadingIcon: Icons.home_outlined,
-        //     text: "Manage Account",
-        //  // ),
-
-        // Text("Manage Address"),
-        // ],
-        );
+        children: childerens);
   }
 }
 
-class customRowAccount extends StatelessWidget {
-  const customRowAccount(
+class CustomRowAccount extends StatelessWidget {
+  const CustomRowAccount(
       {Key? key,
       required this.iconIndicator,
       required this.leadingIcon,
@@ -204,13 +206,8 @@ class customRowAccount extends StatelessWidget {
         kwidth,
         Text(
           text,
-          style: TextStyle(color: pikitBaseGrey),
+          style: const TextStyle(color: pikitBaseGrey),
         ),
-        //kwidthmedium,
-        // Icon(
-        //   Icons.arrow_forward_ios,
-        //   color: pikitBaseGrey,
-        // )
       ],
     );
   }

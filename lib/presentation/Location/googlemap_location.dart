@@ -16,14 +16,14 @@ class GoogleMapLocation extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // iconTheme: IconThemeData(color: Colors.green),
-        backgroundColor: pikitBasebluepleasent,
+        // backgroundColor: pikitBasebluepleasent,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           icon: const Icon(
-            Icons.arrow_back,
+            pikitarrowBack,
           ),
           color: pikitBlack,
         ),

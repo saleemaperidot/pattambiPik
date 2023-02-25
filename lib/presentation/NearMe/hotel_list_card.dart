@@ -20,14 +20,15 @@ class HotelListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _dimensions = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
           Stack(children: [
             Container(
-                width: 100,
-                height: 90,
+                width: _dimensions.width * 0.30,
+                height: _dimensions.height * 0.13,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
@@ -54,7 +55,7 @@ class HotelListCard extends StatelessWidget {
                   ),
                   Container(
                     color: pikitGrey,
-                    width: 230,
+                    // width: 230,
                     height: 1,
                   ),
                   SizedBox(

@@ -10,9 +10,9 @@ class DeleteAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: IconThemeData(color: pikitBlack),
+        iconTheme: const IconThemeData(color: pikitBlack),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -25,20 +25,20 @@ class DeleteAccount extends StatelessWidget {
       ),
       body: SafeArea(
           child: Center(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.6,
           height: MediaQuery.of(context).size.height * 0.5,
           // color: Colors.amberAccent,
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.,
             children: [
-              Icon(
+              const Icon(
                 Icons.delete_outline,
                 color: Colors.orange,
                 size: 50,
               ),
               kheight,
-              Text(
+              const Text(
                 "Delete account will loose data and user access",
                 textAlign: TextAlign.center,
                 maxLines: 2,
@@ -53,18 +53,18 @@ class DeleteAccount extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text("Proceed Now"),
                       style:
                           ElevatedButton.styleFrom(backgroundColor: pikitRed),
+                      child: const Text("Proceed Now"),
                     ),
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text(
+                      style:
+                          ElevatedButton.styleFrom(backgroundColor: pikitGrey),
+                      child: const Text(
                         "Go back",
                         style: TextStyle(color: pikitBlue),
                       ),
-                      style:
-                          ElevatedButton.styleFrom(backgroundColor: pikitGrey),
                     ),
                   ],
                 ),

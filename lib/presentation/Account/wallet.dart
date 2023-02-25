@@ -21,7 +21,7 @@ class Wallet extends StatelessWidget {
               color: pikitBlue,
             )),
         iconTheme: IconThemeData(color: pikitBlack),
-        backgroundColor: pikitWhite,
+        //  backgroundColor: pikitWhite,
         elevation: 0,
         title: Text(
           "WALLET",

@@ -26,7 +26,7 @@ class AlertsScreen extends StatelessWidget {
           color: pikitBlack,
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: pikitWhite,
+        //  backgroundColor: pikitWhite,
         elevation: 0,
         iconTheme: IconThemeData(color: pikitBlack),
         title: Text(
