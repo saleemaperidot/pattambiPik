@@ -2,7 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pikit/application/Items/items_bloc.dart';
 import 'package:pikit/application/NearMeHotelList/promoslider/promoslider_bloc.dart';
+import 'package:pikit/application/NearMeHotelList/restaraunt/allrestaraunts_bloc.dart';
+import 'package:pikit/application/login/login_bloc.dart';
+import 'package:pikit/application/my_order/my_order_bloc.dart';
+import 'package:pikit/application/place_order/place_order_bloc.dart';
+import 'package:pikit/application/proceedToCheckOut/proceed_to_checkout_bloc.dart';
+import 'package:pikit/application/search/bloc/search_bloc.dart';
+import 'package:pikit/application/user_registarion/bloc/registration_bloc.dart';
 import 'package:pikit/constants/constants.dart';
 import 'package:pikit/domain/di/injectable.dart';
 
@@ -24,9 +32,34 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (ctx) => getIt<PromosliderBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<AllrestarauntsBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<ItemsBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<SearchBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<RegistrationBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<LoginBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<PlaceOrderBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<ProceedToCheckoutBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<MyOrderBloc>(),
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'pikit',
         theme: ThemeData(
           scaffoldBackgroundColor: pikitGrey,

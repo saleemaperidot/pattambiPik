@@ -2,6 +2,8 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pikit/application/place_order/place_order_bloc.dart';
 import 'package:pikit/constants/constants.dart';
 
 ValueNotifier<int> navigationNotifier = ValueNotifier(0);
@@ -23,7 +25,7 @@ class BottomNavigationWidget extends StatelessWidget {
           selectedItemColor: Colors.orange,
           backgroundColor: Colors.white,
           unselectedItemColor: Colors.grey,
-          items: const [
+          items: [
             BottomNavigationBarItem(
               icon: Icon(pikitLocationIcon),
               label: "Near Me",
@@ -43,13 +45,17 @@ class BottomNavigationWidget extends StatelessWidget {
               label: "Explore",
             ),
             BottomNavigationBarItem(
-              icon: Badge(
-                  badgeContent: Text(
-                    "0",
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  badgeStyle: BadgeStyle(badgeColor: pikitGreen),
-                  child: Icon(pikitShopingBagIcon)),
+              icon: BlocBuilder<PlaceOrderBloc, PlaceOrderState>(
+                builder: (context, state) {
+                  return Badge(
+                      badgeContent: Text(
+                        state.quantity.toString(),
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                      badgeStyle: BadgeStyle(badgeColor: pikitGreen),
+                      child: Icon(pikitShopingBagIcon));
+                },
+              ),
               label: "Cart",
             ),
             BottomNavigationBarItem(

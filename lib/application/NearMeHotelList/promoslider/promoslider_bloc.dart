@@ -21,7 +21,7 @@ class PromosliderBloc extends Bloc<PromosliderEvent, PromosliderState> {
           promoSlide: [], isloading: true, hasError: false));
 
       final result = await promoSliderServices.getPromoSlidersResponse();
-      print("result in bloc");
+      //  print("result in bloc");
 
       // print(result);
       final _state = result.fold((l) {

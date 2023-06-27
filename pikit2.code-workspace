@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "pikit",
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}

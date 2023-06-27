@@ -6,18 +6,46 @@ import 'package:pikit/presentation/Account/Delete_Account.dart';
 import 'package:pikit/presentation/Account/manageAccount.dart';
 import 'package:pikit/presentation/Account/myOrder.dart';
 import 'package:pikit/presentation/Account/wallet.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class AccountScreen extends StatelessWidget {
+class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
 
   @override
+  State<AccountScreen> createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  late String email, name, phone, address;
+  _loadData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      email = prefs.getString('name') ?? "";
+      name = prefs.getString('email') ?? "";
+      phone = prefs.getString("phone") ?? "";
+      address = prefs.getString("address") ?? "";
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Future<SharedPreferences> prefs = SharedPreferences.getInstance();
     final mediaHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: ListView(
           children: [
-            AccountHolderContainer(mediaHeight: mediaHeight),
+            AccountHolderContainer(
+              mediaHeight: mediaHeight,
+              name: name,
+              phone: phone,
+            ),
             Expanded(
                 child: Column(
               children: [
@@ -132,12 +160,16 @@ class AccountScreen extends StatelessWidget {
 }
 
 class AccountHolderContainer extends StatelessWidget {
-  const AccountHolderContainer({
-    Key? key,
-    required this.mediaHeight,
-  }) : super(key: key);
-
+  AccountHolderContainer(
+      {Key? key,
+      required this.mediaHeight,
+      required this.name,
+      required this.phone})
+      : super(key: key);
+//SharedPreferences preferences=
   final double mediaHeight;
+  final String name;
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -146,13 +178,13 @@ class AccountHolderContainer extends StatelessWidget {
       width: double.infinity,
       height: mediaHeight * 0.3,
       color: pikitGrey,
-      child: const ListTile(
+      child: ListTile(
         title: Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-            "Name Of the Account Holder"),
-        subtitle: Text("918393199"),
+            name),
+        subtitle: Text(phone),
       ),
     );
   }
