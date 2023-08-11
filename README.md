@@ -12,10 +12,7 @@ User can list all previous orders.
 
 ## View
 
-
-
-https://github.com/saleemaperidot/pattambiPik/assets/13269236/fdcc00b5-ebb3-4da3-ad5d-c9c5b5b8198c
-
+https://clipchamp.com/watch/8YyviCGHb5M
 
 
 
