@@ -1,8 +1,23 @@
 # pikit
 
-A new Flutter project.
+A food delivery customer App application,Customers can view restrunts in near by locations.
+Authetication user can login by creating an account in the application through registration process.
+Hotel Listing:Accoding to the location.
+Listing menues in a perticular Hotel.
+user can add remove items from cart.
+Can order food
+can payment can be by cassh on delivery mode/online payment.
+User can list all previous orders.
 
-## Getting Started
+
+## View
+
+
+
+https://github.com/saleemaperidot/pattambiPik/assets/13269236/fdcc00b5-ebb3-4da3-ad5d-c9c5b5b8198c
+
+
+
 
 This project is a starting point for a Flutter application.
 
